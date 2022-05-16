@@ -3,9 +3,9 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include <Windows.h>
-#define TSIZE 45 /* ������ ������� ��� �������� ������ */
-#define  _CRT_SECURE_NO_WARNINGS
+// #include <Windows.h>
+// #define TSIZE 45 /* ������ ������� ��� �������� ������ */
+// #define  _CRT_SECURE_NO_WARNINGS
  enum Bool { false, true };
 
  struct student
@@ -24,18 +24,12 @@ typedef struct node
 typedef Node* List;
 typedef  List T;
 void InitializeList(List* );/* ������������� ������ ������ ��������� plist ������. �� ������*/
-
- bool ListIsEmpty(const List plist); /* ������� ���������� �������� Tru�, ���� ������ ����*/
-
+bool ListIsEmpty(const List plist); /* ������� ���������� �������� Tru�, ���� ������ ����*/
 unsigned int ListItemCount(const List plist);/* ����������� ���������� ��������� � ������ */
-
 bool AddItem(Item item, List* plist);/* ���������� �������� � ����� ������,item �  ����������� ������� */
-
 void handlingListItems(const List plist, void (*pfun)(Item item));/* ���������� ������� � ������� �������� pfun ��������� �� ������� */
-
 void EmptyTheList(List* plist);/*  ������������ ����������������� ������ */
-
-void data�ollectionStorage(List *);
+void dataCollectionStorage(List *);
 void CopyToNode(Item item, Node* pnode);/* �������� ��������� ������� */
 void AddFirst(List* plist);// ���������� �������� � ������ ������
 void AddMiddl(List plist);

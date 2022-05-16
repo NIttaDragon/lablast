@@ -1,5 +1,4 @@
 ﻿// Lst2.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
-//
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -24,8 +23,6 @@ void prn(pNode);
 void Prn(pNode pnode);
 int i = 0;
 
-
-
 int main()
 {
 pNode Head = NULL, Tail = NULL;// для пустого списка
@@ -36,14 +33,14 @@ AddFirst(&Head, &Tail, CreateNode());
 prn(Head);
 AddLast(&Head, &Tail, CreateNode());
 prn(Head);
-printf("Fam for find-?");char FindWord[Len];scanf_s("%s", FindWord, Len);
+printf("Fam for find-?");char FindWord[Len];scanf("%s", FindWord, Len);
 pNode x=Find(Head, FindWord);
 printf("%-10s\t%d\n", x->word, x->count);
-printf("Fam for insert-?"); char InsWord[Len]; scanf_s("%s", InsWord, Len);
+printf("Fam for insert-?"); char InsWord[Len]; scanf("%s", InsWord, Len);
 pNode InsNode = CreateNodeFam(InsWord);
 AddAfter(&Head, &Tail, x, InsNode);
 prn(Head);
-printf("Fam for delete-?"); char DelWord[Len]; scanf_s("%s", DelWord, Len);
+printf("Fam for delete-?"); char DelWord[Len]; scanf("%s", DelWord, Len);
 pNode DelNode = Find(Head, DelWord);
 Delete(&Head, &Tail,DelNode);
 prn(Head);
@@ -55,9 +52,9 @@ pNode CreateNode()
 	pNode NewNode = (pNode)malloc(sizeof(Node)); // указ. на новый узел
 	printf("Fam-?");
 	char NewWord[Len];
-	scanf_s("%s", NewWord,Len);
-	strcpy_s(NewNode->word,Len, NewWord); // записать слово
-	NewNode->count = ++i; // счетчик  
+	scanf("%s", NewWord,Len);
+	strcpy(NewNode->word,Len, NewWord); // записать слово
+	NewNode->count = ++i; // счетчик
 	NewNode->next = NULL; // следующего узла нет
 	return NewNode; // результат функции – адрес узла
 }
@@ -65,8 +62,8 @@ pNode CreateNodeFam(char *NewWord)
 {
 	pNode NewNode = (pNode)malloc(sizeof(Node)); // указ. на новый узел
 
-	strcpy_s(NewNode->word, Len, NewWord); // записать слово
-	NewNode->count = ++i; // счетчик  
+	strcpy(NewNode->word, Len, NewWord); // записать слово
+	NewNode->count = ++i; // счетчик
 	NewNode->next = NULL; // следующего узла нет
 	return NewNode; // результат функции – адрес узла
 }
@@ -108,7 +105,7 @@ void Delete(pNode* Head, pNode* Tail, pNode OldNode)
 		OldNode->prev->next = OldNode->next;
 		if (OldNode->next)
 			OldNode->next->prev = OldNode->prev;
-		else *Tail = NULL; // удалили последний элемент 
+		else *Tail = NULL; // удалили последний элемент
 	}
 	free(OldNode);
 }
@@ -124,10 +121,6 @@ void AddAfter(pNode* Head, pNode* Tail,	pNode p, pNode NewNode)
 		p->next = NewNode;
 	}
 }
-
-
-
-
 
 //Вывод списка
 void prn(pNode pnode)
